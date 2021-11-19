@@ -1,4 +1,4 @@
-// package School_Management_System;
+package School_Management_System;
 
 import java.sql.*;
 
@@ -13,7 +13,7 @@ public class app {
       // com.mysql.jdbc.Driver
       Connection con = DriverManager.getConnection(
           "jdbc:mysql://localhost:3306/school_db?characterEncoding=latin1&useConfigs=maxPerformance",
-          "root", "Mumbai@123");
+          "root", "");
 
       Statement stmt = con.createStatement();
 

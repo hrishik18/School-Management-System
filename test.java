@@ -1,3 +1,5 @@
+package School_Management_System;
+
 import java.sql.*;
 
 public class test {
