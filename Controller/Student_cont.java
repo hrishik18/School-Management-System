@@ -14,8 +14,21 @@ public class Student_cont implements Student_I{
 
     @Override
     public void save(Student students) {
-        // TODO Auto-generated method stub
-        
+        try {
+            Connection con =  StudentDb.getConnection();
+            String sql = "INSERT INTO info(s_name,std,s_div,roll,s_stream) VALUES (?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, students.Name());
+            ps.setString(2, students.Std());
+            ps.setInt(3, students.Div());
+            ps.setInt(3, students.Roll());
+            ps.setInt(3, students.Stream());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Saved!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
     }
 
     @Override
