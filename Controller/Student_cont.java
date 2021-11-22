@@ -33,13 +33,39 @@ public class Student_cont implements Student_I{
 
     @Override
     public void update(Student students) {
-        // TODO Auto-generated method stub
+             Connection con = StudentDb.getConnection();
+            String sql = "UPDATE students SET s_name=?,std=?,s_div=?,roll=?,s_stream=? WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, students.Name());
+            ps.setString(2, students.Std());
+            ps.setInt(3, students.Div());
+            ps.setInt(3, students.Roll());
+            ps.setInt(3, students.Stream());
+            ps.setInt(1, students.Roll()); //check 
+            ps.executeUpdate();
+ 
+        
+            JOptionPane.showMessageDialog(null, "Updated!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
         
     }
 
     @Override
     public void delete(Student students) {
-        // TODO Auto-generated method stub
+           try {
+            Connection con = StudentDb.getConnection();
+            String sql = "delete from info  WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(sql);  
+            ps.setInt(1, students.Roll());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Deleteddd!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error");
+        }
         
     }
 
