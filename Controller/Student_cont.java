@@ -74,7 +74,7 @@ public class Student_cont implements Student_I{
       Student st = new Student();
       try {
         Connection con = StudentDB.getConnection();
-        String sql = "SELECT * FROM students WHERE id=?";
+        String sql = "SELECT * FROM info WHERE id=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
@@ -100,7 +100,7 @@ public class Student_cont implements Student_I{
       List<Student> list = new ArrayList<Student>();
       try {
         Connection con = StudentDB.getConnection();
-        String sql = "SELECT * FROM students ";
+        String sql = "SELECT * FROM info ";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
