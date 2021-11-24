@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class Student_cont implements Student_I{
+public class Student_cont implements Student_I {
 
-      @Override
-      public void save(Student students) {
+  @Override
+  public void save(Student students) {
     try {
       Connection con = StudentDB.getConnection();
       String sql =
@@ -30,99 +30,93 @@ public class Student_cont implements Student_I{
     }
   }
 
-    @Override
-    public void update(Student students) {
-        try{
-             Connection con = StudentDB.getConnection();
-            String sql = "UPDATE students SET s_name=?,std=?,s_div=?,roll=?,s_stream=? WHERE id=?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, students.Name());
-            ps.setInt(2, students.Std());
-            ps.setInt(3, students.Div());
-            ps.setInt(3, students.Roll());
-            ps.setString(3, students.Stream());
-            ps.setInt(1, students.Roll()); //check 
-            ps.executeUpdate();
- 
-        
-            JOptionPane.showMessageDialog(null, "Updated!");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
+  @Override
+  public void update(Student students) {
+    try {
+      Connection con = StudentDB.getConnection();
+      String sql =
+          "UPDATE students SET s_name=?,std=?,s_div=?,roll=?,s_stream=? WHERE id=?";
+      PreparedStatement ps = con.prepareStatement(sql);
+      ps.setString(1, students.Name());
+      ps.setInt(2, students.Std());
+      ps.setInt(3, students.Div());
+      ps.setInt(3, students.Roll());
+      ps.setString(3, students.Stream());
+      ps.setInt(1, students.Roll()); // check
+      ps.executeUpdate();
+
+      JOptionPane.showMessageDialog(null, "Updated!");
+    } catch (Exception e) {
+      e.printStackTrace();
+      JOptionPane.showMessageDialog(null, "Error");
     }
+  }
 
-    @Override
-    public void delete(Student students) {
-           try {
-            Connection con = StudentDB.getConnection();
-            String sql = "delete from info  WHERE id=?";
-            PreparedStatement ps = con.prepareStatement(sql);  
-            ps.setInt(1, students.Roll());
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Deleteddd!");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error");
-        }
-        
+  @Override
+  public void delete(Student students) {
+    try {
+      Connection con = StudentDB.getConnection();
+      String sql = "delete from info  WHERE id=?";
+      PreparedStatement ps = con.prepareStatement(sql);
+      ps.setInt(1, students.Roll());
+      ps.executeUpdate();
+      JOptionPane.showMessageDialog(null, "Deleteddd!");
+    } catch (Exception e) {
+      e.printStackTrace();
+      JOptionPane.showMessageDialog(null, "Error");
     }
+  }
 
-    @Override
-    public Student get(int id) {
-      Student st = new Student();
-      try {
-        Connection con = StudentDB.getConnection();
-        String sql = "SELECT * FROM info WHERE id=?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, id);
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-          st.Id(rs.getInt("id"));
-          st.Name(rs.getString("s_name"));
-          st.Std(rs.getInt("std"));
-          st.Div(rs.getCharacterStream("s_div"));
-          st.Roll(rs.getInt("roll"));
-          st.Stream(rs.getString("s_stream"));
-        }
-
-      } catch (Exception e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error");
+  @Override
+  public Student get(int id) {
+    Student st = new Student();
+    try {
+      Connection con = StudentDB.getConnection();
+      String sql = "SELECT * FROM info WHERE id=?";
+      PreparedStatement ps = con.prepareStatement(sql);
+      ps.setInt(1, id);
+      ResultSet rs = ps.executeQuery();
+      if (rs.next()) {
+        st.Id(rs.getInt("id"));
+        st.Name(rs.getString("s_name"));
+        st.Std(rs.getInt("std"));
+        st.Div(rs.getCharacterStream("s_div"));
+        st.Roll(rs.getInt("roll"));
+        st.Stream(rs.getString("s_stream"));
       }
-      return st;
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      JOptionPane.showMessageDialog(null, "Error");
     }
-    
+    return st;
+  }
 
-    @Override
-    public List<Student> list() {
-      List<Student> list = new ArrayList<Student>();
-      try {
-        Connection con = StudentDB.getConnection();
-        String sql = "SELECT * FROM info ";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
+  @Override
+  public List<Student> list() {
+    List<Student> list = new ArrayList<Student>();
+    try {
+      Connection con = StudentDB.getConnection();
+      String sql = "SELECT * FROM info ";
+      PreparedStatement ps = con.prepareStatement(sql);
+      ResultSet rs = ps.executeQuery();
 
-        while (rs.next()) {
-          Student st = new Student();
-          st.Id(rs.getInt("id"));
-          st.Name(rs.getString("s_name"));
-          st.Std(rs.getInt("std"));
-          st.Div(rs.getCharacterStream("s_div"));
-          st.Roll(rs.getInt("roll"));
-          st.Stream(rs.getString("s_stream"));
+      while (rs.next()) {
+        Student st = new Student();
+        st.Id(rs.getInt("id"));
+        st.Name(rs.getString("s_name"));
+        st.Std(rs.getInt("std"));
+        st.Div(rs.getCharacterStream("s_div"));
+        st.Roll(rs.getInt("roll"));
+        st.Stream(rs.getString("s_stream"));
 
-          list.add(st);
-        }
-
-      } catch (Exception e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error"); 
+        list.add(st);
       }
-      return list;
-    }
 
-    
-    
+    } catch (Exception e) {
+      e.printStackTrace();
+      JOptionPane.showMessageDialog(null, "Error");
+    }
+    return list;
+  }
 }
