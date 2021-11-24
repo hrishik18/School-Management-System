@@ -1,10 +1,12 @@
 package School_Management_System.Model;
 
+import java.io.Reader;
+
 public class Student {
   private int id;
   private String s_name;
   private int std;
-  private char s_div;
+  private Reader s_div;
   private int roll;
   private String s_stream;
 
@@ -20,9 +22,9 @@ public class Student {
 
   public void Std(int std) { this.std = std; }
 
-  public char Div() { return s_div; }
+   public Reader Div() { return s_div; }
 
-  public void Div(char s_div) { this.s_div = s_div; }
+  public void Div(Reader s_div) { this.s_div = s_div; }
 
   public int Roll() { return roll; }
 
