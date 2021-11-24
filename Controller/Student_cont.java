@@ -118,7 +118,7 @@ public class Student_cont implements Student_I{
 
       } catch (Exception e) {
         e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error");
+        JOptionPane.showMessageDialog(null, "Error"); 
       }
       return list;
     }
