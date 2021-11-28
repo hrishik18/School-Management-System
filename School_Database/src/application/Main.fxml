@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="579.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.table_view1">
+   <children>
+      <AnchorPane layoutX="-4.0" prefHeight="643.0" prefWidth="798.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <ButtonBar layoutX="34.0" layoutY="185.0" prefHeight="40.0" prefWidth="101.0" />
+            <ButtonBar layoutX="46.0" layoutY="240.0" prefHeight="54.0" prefWidth="90.0" />
+            <ButtonBar layoutX="40.0" layoutY="362.0" prefHeight="40.0" prefWidth="65.0" />
+          <Button fx:id="upd" layoutX="409.0" layoutY="473.0" mnemonicParsing="false" onAction="#update" prefHeight="56.0" prefWidth="126.0" style="-fx-background-color: blue;" text="Update" />
+          <Button fx:id="del" layoutX="566.0" layoutY="473.0" mnemonicParsing="false" onAction="#delete" prefHeight="56.0" prefWidth="126.0" style="-fx-background-color: blue;" text="Delete" />
+            <TableView fx:id="table" layoutX="205.0" layoutY="80.0" prefHeight="374.0" prefWidth="547.0">
+              <columns>
+                <TableColumn fx:id="table_id" prefWidth="75.0" style="font-colour: black;" text="id" />
+                <TableColumn fx:id="table_name" editable="false" prefWidth="172.79998779296875" text="Name" />
+                  <TableColumn fx:id="table_std" minWidth="7.20001220703125" prefWidth="63.200042724609375" text="Standard" />
+                  <TableColumn fx:id="table_div" prefWidth="75.99993896484375" text="Division " />
+                  <TableColumn fx:id="table_roll" prefWidth="75.2000732421875" text="Roll No." />
+                  <TableColumn fx:id="table_stream" prefWidth="89.60009765625" text="Stream" />
+              </columns>
+            </TableView>
+            <TextField fx:id="txt_name" layoutX="31.0" layoutY="131.0" minHeight="30.0" prefWidth="140.0" promptText="NAME" style="-fx-background-color: white;" />
+            <TextField fx:id="txt_std" layoutX="31.0" layoutY="192.0" minHeight="30.0" prefWidth="140.0" promptText="STANDARD" style="-fx-background-color: white; visibility: 100;" />
+            <TextField fx:id="txt_div" layoutX="30.0" layoutY="267.0" minHeight="30.0" prefWidth="140.0" promptText="DIVISION" style="-fx-background-color: white;" />
+            <TextField fx:id="txt_roll" layoutX="30.0" layoutY="342.0" minHeight="30.0" prefWidth="140.0" promptText="ROLL NUMBER" style="-fx-background-color: white;" />
+            <TextField fx:id="txt_stream" layoutX="30.0" layoutY="421.0" minHeight="30.0" prefWidth="140.0" promptText="STREAM" style="-fx-background-color: white;" />
+            <TextField fx:id="txt_id" layoutX="398.0" layoutY="568.0" minHeight="30.0" prefWidth="140.0" promptText="ID" style="-fx-background-color: white;" />
+            <Text fill="#c2b313" fontSmoothingType="LCD" layoutX="277.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENTS RECORD" wrappingWidth="414.867431640625">
+               <font>
+                  <Font name="Bell MT Bold" size="34.0" />
+               </font>
+            </Text>
+            <Text fill="#ada45c" fontSmoothingType="LCD" layoutX="205.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD/UPDATE/DELETE:">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="clear1" layoutX="47.0" layoutY="488.0" mnemonicParsing="false" onAction="#clear_data" prefHeight="30.0" prefWidth="102.0" text="CLEAR" />
+            <Button fx:id="add" layoutX="258.0" layoutY="475.0" mnemonicParsing="false" onAction="#save" prefHeight="56.0" prefWidth="126.0" style="-fx-background-color: blue;" text="Add" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
