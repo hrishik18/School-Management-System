@@ -18,7 +18,7 @@ public class StudentDB {
      // com.mysql.jdbc.Driver
      Connection con = DriverManager.getConnection(
          "jdbc:mysql://localhost:3306/school_db?characterEncoding=latin1&useConfigs=maxPerformance",
-         "root", "apek_sql");
+         "root", "");
 
      Statement stmt = con.createStatement();
 
