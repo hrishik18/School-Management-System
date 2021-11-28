@@ -1,7 +1,6 @@
 package Controller;
-import java.util.List;
-
 import application.Student;
+import java.util.List;
 
 public interface Student_I {
 

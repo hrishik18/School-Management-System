@@ -20,7 +20,7 @@ public class Student {
 
   public void Std(String std) { this.std = std; }
 
-   public String Div() { return s_div; }
+  public String Div() { return s_div; }
 
   public void Div(String s_div) { this.s_div = s_div; }
 
@@ -31,17 +31,14 @@ public class Student {
   public String Stream() { return s_stream; }
 
   public void Stream(String s_stream) { this.s_stream = s_stream; }
-  
-  
-  public Student(String id, String s_name, String std, String s_div, String roll,String s_stream) {
-      this.id = id;
-      this.s_name = s_name;
-      this.std = std;
-      this.s_div = s_div;
-      this.roll = roll;
-      this.s_stream=s_stream;
+
+  public Student(String id, String s_name, String std, String s_div,
+                 String roll, String s_stream) {
+    this.id = id;
+    this.s_name = s_name;
+    this.std = std;
+    this.s_div = s_div;
+    this.roll = roll;
+    this.s_stream = s_stream;
   }
 }
-
-
-
