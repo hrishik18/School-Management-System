@@ -1,7 +1,7 @@
 package Controller;
 import java.util.List;
 
-import application.Student;
+import Model.Student;
 
 public interface Student_I {
 
