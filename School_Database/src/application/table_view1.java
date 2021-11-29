@@ -1,5 +1,6 @@
 package application;
 import java.net.URL;
+
 import java.sql.Connection;
 import java.sql.ConnectionBuilder;
 import java.sql.PreparedStatement;
@@ -21,6 +22,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import javax.swing.JOptionPane;
+
+import DBconnection.StudentDB;
+import Model.Student;
 
 public class table_view1 implements Initializable{
 @FXML
